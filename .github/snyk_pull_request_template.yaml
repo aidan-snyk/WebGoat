@@ -2,6 +2,11 @@ title: "Snyk {{ snyk_pull_request_type }} PR (addresses {{ issue_count }} issues
 branchName: "security/{{ issue_count }}-issues"
 commitMessage: "fix: {{ issue_count }} Snyk issues"
 description: |
+
+  <b>Changes made:</b>
+  {{ #package_name }} {{ #package_from }} {{ #package_to }}
+  {{ . }} {{ . }} {{ . }}
+  {{ /package_name }} {{ /package_from }} {{ /package_to }}
   {{ #is_upgrade_pr }}
   <b>Upgrade PR:</b>
   
