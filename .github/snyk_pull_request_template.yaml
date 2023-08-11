@@ -1,13 +1,22 @@
-title: "🔧 Snyk {{ snyk_pull_request_type }} PR (addresses {{ issue_count }} issues)"
+title: "Snyk {{ snyk_pull_request_type }} PR (addresses {{ issue_count }} issues)"
 branchName: "security/{{ issue_count }}-issues"
 commitMessage: "fix: {{ issue_count }} Snyk issues"
 description: |
-
-  **Background:**
-  - Snyk Org: [{{ snyk_org_name }}](https://app.snyk.io/org/{{ snyk_org_name }}/projects?groupBy=targets&searchQuery=&sortBy=highest+severity&filters[Show]=&filters[Integrations]=&before&after)
-  - Upgrade PR? {{ is_upgrade_pr }}
-  - Backlog PR? {{ is_backlog_pr }}
-  - Fix PR? {{ is_fix_pr }}
+  Snyk Org: [{{ snyk_org_name }}](https://app.snyk.io/org/{{ snyk_org_name }}/projects?groupBy=targets&searchQuery=&sortBy=highest+severity&filters[Show]=&filters[Integrations]=&before&after)
+  {{ #is_upgrade_pr }}
+  📚 This PR has been opened to make sure our repositories are kept up-to-date.
+  It updates **{{ package_name }}** from version **{{ package_from }}** to version **{{ package_to }}**.
+  Review relevant docs for possible breaking changes.
+  {{ /is_upgrade_pr }}
+  {{ ^is_upgrade_pr }}
+  {{ /is_upgrade_pr }}
+  {{ #is_fix_pr }}
+  🔧 This PR has been opened to fix a vulnerability by upgrading **{{ package_name }}** from **{{ package_from }}** to **{{ package_to }}**.
+  Review relevant docs for possible breaking changes.
+  {{ /is_fix_pr }}
+  {{ ^is_fix_pr }}
+  {{ /is_fix_pr }}
+  Backlog PR? {{ is_backlog_pr }}
 
   **Issue detail:**
   Fixes {{ issue_count }} issues by moving {{ package_name }} from {{ package_from }} to {{ package_to }}.
