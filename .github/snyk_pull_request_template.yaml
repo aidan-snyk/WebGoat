@@ -2,7 +2,6 @@ title: "Snyk {{ snyk_pull_request_type }} PR (addresses {{ issue_count }} issues
 branchName: "security/{{ issue_count }}-issues"
 commitMessage: "fix: {{ issue_count }} Snyk issues"
 description: |
-  Snyk Org: [{{ snyk_org_name }}](https://app.snyk.io/org/{{ snyk_org_name }}/projects?groupBy=targets&searchQuery=&sortBy=highest+severity&filters[Show]=&filters[Integrations]=&before&after)
   {{ #is_upgrade_pr }}
   📚 This PR has been opened to make sure our repositories are kept up-to-date.
   It updates **{{ package_name }}** from version **{{ package_from }}** to version **{{ package_to }}**.
@@ -19,6 +18,7 @@ description: |
   Backlog PR? {{ is_backlog_pr }}
 
   **Issue detail:**
+  Snyk Org: [{{ snyk_org_name }}](https://app.snyk.io/org/{{ snyk_org_name }}/projects?groupBy=targets&searchQuery=&sortBy=highest+severity&filters[Show]=&filters[Integrations]=&before&after)
   Fixes {{ issue_count }} issues by moving {{ package_name }} from {{ package_from }} to {{ package_to }}.
   
   **Tickets:**
