@@ -3,23 +3,28 @@ branchName: "security/{{ issue_count }}-issues"
 commitMessage: "fix: {{ issue_count }} Snyk issues"
 description: |
   {{ #is_upgrade_pr }}
+  **Upgrade PR:**
   📚 This PR has been opened to make sure our repositories are kept up-to-date.
-  It updates **{{ package_name }}** from version **{{ package_from }}** to version **{{ package_to }}**.
+  It updates <b>{{ package_name }}</b> from version <b>{{ package_from }}</b> to version <b>{{ package_to }}</b>.
   Review relevant docs for possible breaking changes.
   {{ /is_upgrade_pr }}
   {{ ^is_upgrade_pr }}
   {{ /is_upgrade_pr }}
   {{ #is_fix_pr }}
-  🔧 This PR has been opened to fix a vulnerability by upgrading **{{ package_name }}** from **{{ package_from }}** to **{{ package_to }}**.
+  **Fix PR:**
+  🔧 This PR has been opened to fix a vulnerability by upgrading <b>{{ package_name }}</b> from <b>{{ package_from }}</b> to <b>{{ package_to }}</b>.
   Review relevant docs for possible breaking changes.
   {{ /is_fix_pr }}
   {{ ^is_fix_pr }}
   {{ /is_fix_pr }}
-  Backlog PR? {{ is_backlog_pr }}
-
-  **Issue detail:**
+  {{ #is_backlog_pr }}
+  🪵 This PR addresses a backlog item.
+  {{ /is_backlog_pr }}
+  {{ ^is_backlog_pr }}
+  {{ /is_backlog_pr }}
+  
   Snyk Org: [{{ snyk_org_name }}](https://app.snyk.io/org/{{ snyk_org_name }}/projects?groupBy=targets&searchQuery=&sortBy=highest+severity&filters[Show]=&filters[Integrations]=&before&after)
-  Fixes {{ issue_count }} issues by moving {{ package_name }} from {{ package_from }} to {{ package_to }}.
+  To find more details, see this issue in the Snyk UI [{{ snyk_project_name }}]({{ snyk_project_url }})
   
   **Tickets:**
   {{ #jira_ids }}
@@ -28,6 +33,3 @@ description: |
   {{ ^jira_ids }}
   No associated tickets
   {{ /jira_ids }}
-
-  **More details:**
-  To find more details, see this issue in the Snyk UI [{{ snyk_project_name }}]({{ snyk_project_url }})
