@@ -1,22 +1,20 @@
-title: This PR fixes {{ issue_count }} issues
-branchName: fix/{{ issue_count }}-issues
+title: "Snyk {{ snyk_pull_request_type }} PR (addresses {{ issue_count }} issues)"
+branchName: "security/{{ issue_count }}-issues"
 commitMessage: "fix: {{ issue_count }} Snyk issues"
 description: |
-  Fixes {{ issue_count }} issues
+  **Background:**
+  Snyk Org: {{ snyk_org_name }}
+  Upgrade PR? {{ is_upgrade_pr }}
+  Backlog PR? {{ is_backlog_pr }}
+  Fix PR? {{ is_fix_pr }}
+
+  **Issue detail:**
+  Fixes {{ issue_count }} issues by moving {{ package_name }} from {{ package_from }} to {{ package_to }}.
   
-  **Tickets**
+  **Tickets:**
   {{ #each jira_ids }}
   - Fixes {{ self }}
   {{ /each }}
 
-  Fix applied by {{ snyk_org_name }}
-  Fixes {{ package_name }}
-  Fix is applied by moving from {{ package_from }}
-  Fix is applied by moving to {{ package_to }}
-  branchName: fix/{{ issue_count }}-issues
-  Is this pr a fix pr? {{ is_fix_pr }}
-  Is this pr a backlog pr? {{ is_backlog_pr }}
-  Is this pr an upgrade pr? {{ is_upgrade_pr }}
-  This is a {{ snyk_pull_request_type }} pull request
-  
+  **More details:**
   To find more details, see the Snyk project [{{ snyk_project_name }}]({{ snyk_project_url }})
