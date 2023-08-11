@@ -4,6 +4,7 @@ commitMessage: "fix: {{ issue_count }} Snyk issues"
 description: |
   {{ #is_upgrade_pr }}
   <b>Upgrade PR:</b>
+  
   📚 This PR has been opened to make sure our repositories are kept up-to-date.
   
   It updates <b>{{ package_name }}</b> from version <b>{{ package_from }}</b> to version <b>{{ package_to }}</b>.
@@ -14,6 +15,7 @@ description: |
   {{ /is_upgrade_pr }}
   {{ #is_fix_pr }}
   <b>Fix PR:</b>
+  
   🔧 This PR has been opened to fix a vulnerability by upgrading <b>{{ package_name }}</b> from <b>{{ package_from }}</b> to <b>{{ package_to }}</b>.
   
   Review relevant docs for possible breaking changes.
