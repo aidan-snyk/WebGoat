@@ -4,9 +4,8 @@ commitMessage: "fix: {{ issue_count }} Snyk issues"
 description: |
 
   <b>Changes made:</b>
-  {{ #package_name }} {{ #package_from }} {{ #package_to }}
-  {{ . }} {{ . }} {{ . }}
-  {{ /package_name }} {{ /package_from }} {{ /package_to }}
+  - <b>{{ package_name }}</b>: <b>{{ package_from }}</b> ➡️ <b>{{ package_to }}</b>
+
   {{ #is_upgrade_pr }}
   <b>Upgrade PR:</b>
   
