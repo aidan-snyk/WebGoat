@@ -4,20 +4,20 @@ commitMessage: "fix: {{ issue_count }} Snyk issues"
 description: |
 
   <b>Changes made:</b>
-  - <b>{{ package_name }}</b>: <b>{{ package_from }}</b> ➡️ <b>{{ package_to }}</b>
+  - <b>{{ package_name }}</b>: {{ package_from }} ➡️ {{ package_to }}
 
   {{ #is_upgrade_pr }}
+  
   <b>Upgrade PR:</b>
   
   📚 This PR has been opened to make sure our repositories are kept up-to-date.
-  
-  It updates <b>{{ package_name }}</b> from version <b>{{ package_from }}</b> to version <b>{{ package_to }}</b>.
   
   Review relevant docs for possible breaking changes.
   {{ /is_upgrade_pr }}
   {{ ^is_upgrade_pr }}
   {{ /is_upgrade_pr }}
   {{ #is_fix_pr }}
+  
   <b>Fix PR:</b>
   
   🔧 This PR has been opened to fix a vulnerability by upgrading <b>{{ package_name }}</b> from <b>{{ package_from }}</b> to <b>{{ package_to }}</b>.
@@ -27,7 +27,9 @@ description: |
   {{ ^is_fix_pr }}
   {{ /is_fix_pr }}
   {{ #is_backlog_pr }}
+  
   🪵 This PR addresses a backlog item.
+  
   {{ /is_backlog_pr }}
   {{ ^is_backlog_pr }}
   {{ /is_backlog_pr }}
