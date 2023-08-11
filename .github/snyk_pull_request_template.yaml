@@ -1,12 +1,12 @@
-title: "Snyk {{ snyk_pull_request_type }} PR (addresses {{ issue_count }} issues)"
+title: "🔧 Snyk {{ snyk_pull_request_type }} PR (addresses {{ issue_count }} issues)"
 branchName: "security/{{ issue_count }}-issues"
 commitMessage: "fix: {{ issue_count }} Snyk issues"
 description: |
   **Background:**
-  Snyk Org: {{ snyk_org_name }}
-  Upgrade PR? {{ is_upgrade_pr }}
-  Backlog PR? {{ is_backlog_pr }}
-  Fix PR? {{ is_fix_pr }}
+  Snyk Org: [{{ snyk_org_name }}](https://app.snyk.io/org/{{ snyk_org_name }}/projects?groupBy=targets&searchQuery=&sortBy=highest+severity&filters[Show]=&filters[Integrations]=&before&after) /n
+  Upgrade PR? {{ is_upgrade_pr }} /n
+  Backlog PR? {{ is_backlog_pr }} /n
+  Fix PR? {{ is_fix_pr }} /n
 
   **Issue detail:**
   Fixes {{ issue_count }} issues by moving {{ package_name }} from {{ package_from }} to {{ package_to }}.
@@ -14,6 +14,9 @@ description: |
   **Tickets:**
   {{ #jira_ids }}
   - Fixes {{ . }}
+  {{ /jira_ids }}
+  {{ ^jira_ids }}
+  No associated tickets
   {{ /jira_ids }}
 
   **More details:**
