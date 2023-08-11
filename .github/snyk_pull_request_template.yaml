@@ -35,6 +35,7 @@ description: |
   {{ /is_backlog_pr }}
   
   Snyk Org: [{{ snyk_org_name }}](https://app.snyk.io/org/{{ snyk_org_name }}/projects?groupBy=targets&searchQuery=&sortBy=highest+severity&filters[Show]=&filters[Integrations]=&before&after)
+  
   To find more details, see this issue in the Snyk UI [{{ snyk_project_name }}]({{ snyk_project_url }})
   
   **Tickets:**
